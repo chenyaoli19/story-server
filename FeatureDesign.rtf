@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red217\green11\blue0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww18400\viewh9880\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs36 \cf2 Feature Designs\
+
+\fs24 \cf0 \
+Features:\
+
+\b0 1. In the front page I want to show a timeline like scrolling page.\
+2. Each year it will take a screen, you can scroll horizontally to view the biggest event in that year. Choose 3-5 biggest event for now.\
+3. In each year\'92s each event, you can click and go to an edit page to enter your story related to that event.\
+4. In the enter story page, you can enter text and also upload one image to support your story. Your story will be limited to 500 words for now\
+5. You can view all the big events on the front page by scrolling up and down\
+6. You can dive into the story list by go to a separate page. For example, you find a big event in the home page and then go to a story list in another page, you can view all stories from other people related to this event\
+7. You can also submit your story and suggest other big events in a year.\
+\
+
+\b Backend DAOs: (Created)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls1\ilvl0
+\b0 \cf0 {\listtext	\'95	}story\
+{\listtext	\'95	}user\
+{\listtext	\'95	}event\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+story: \{\
+	id: string,\
+	userId: string,\
+	year: string,\
+	eventId: string,\
+	title: string,\
+	content: string,\
+	imageUrl: string\
+\}\
+user: \{\
+	id: string,\
+	username: string,\
+	email: string,\
+	age: string,\
+	gender: string,\
+\}\
+event: \{\
+	id: string,\
+	title: string,\
+	content: string,\
+	year: string,\
+	imageUrl: [string]\
+\}\
+\
+
+\b Backend APIs\
+
+\b0 Home page:\
+-getFirst5Years() //get all events from the first three years, including the images etc.\
+-getNext5Years() //As the user scroll, load events from the next three years\
+\
+Submit story page:\
+-submitStory() // submit a new story, can enter title, content, upload image\
+\
+View story page:\
+-getStoryByYear() //\
+-getStoryByEvent() //\
+\
+User login page:\
+-login()\
+-register()\
+-changePassword()\
+-socialLogin()}
