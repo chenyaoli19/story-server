@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var story = require('./routes/story');
+var event = require('./routes/event');
 //var index = require('./routes/index');
 //var staticContent = require('./routes/static');
 /*example*/
@@ -26,10 +27,8 @@ app.use('/api/test', function(req,res,next){
     res.json('Server is running, you can start programming!');
 });
 app.use('/story',story);
+app.use('/event', event);
 
-//app.use('/', staticContent);
-/*example*/
-//app.use('/api/careerPlanning', careerPlanning);
 app.use(function(req,res,next) {
     var err = new Error('Not Found');
     err.status = 404;

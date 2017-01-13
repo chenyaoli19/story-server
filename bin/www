@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('yanset-server:server');
+var debug = require('debug')('story-server:server');
 var http = require('http');
 
 /**
